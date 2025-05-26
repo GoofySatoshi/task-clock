@@ -1,0 +1,81 @@
+{
+  "deleteScenarios": [
+    {
+      "id": "d1",
+      "task": {
+        "id": "t1",
+        "title": "临时会议记录",
+        "description": "记录临时会议讨论内容",
+        "tags": ["会议", "临时"],
+        "estimatedPomodoros": 1,
+        "completed": true,
+        "completedPomodoros": 1,
+        "createdAt": "2024-03-15T09:00:00Z",
+        "updatedAt": "2024-03-15T09:30:00Z"
+      },
+      "deleteReason": "会议内容已整理到文档",
+      "deleteType": "single",
+      "timestamp": "2024-03-15T10:00:00Z"
+    },
+    {
+      "id": "d2",
+      "task": {
+        "id": "t2",
+        "title": "旧版本功能测试",
+        "description": "测试已废弃的旧版本功能",
+        "tags": ["测试", "废弃"],
+        "estimatedPomodoros": 3,
+        "completed": false,
+        "completedPomodoros": 0,
+        "createdAt": "2024-03-14T14:00:00Z",
+        "updatedAt": "2024-03-14T14:00:00Z"
+      },
+      "deleteReason": "功能已废弃，不再需要测试",
+      "deleteType": "single",
+      "timestamp": "2024-03-15T11:00:00Z"
+    },
+    {
+      "id": "d3",
+      "tasks": [
+        {
+          "id": "t3",
+          "title": "每日站会",
+          "description": "团队每日站会",
+          "tags": ["会议", "日常"],
+          "estimatedPomodoros": 1,
+          "completed": true,
+          "completedPomodoros": 1,
+          "createdAt": "2024-03-13T09:00:00Z",
+          "updatedAt": "2024-03-13T09:15:00Z"
+        },
+        {
+          "id": "t4",
+          "title": "每日站会",
+          "description": "团队每日站会",
+          "tags": ["会议", "日常"],
+          "estimatedPomodoros": 1,
+          "completed": true,
+          "completedPomodoros": 1,
+          "createdAt": "2024-03-12T09:00:00Z",
+          "updatedAt": "2024-03-12T09:15:00Z"
+        }
+      ],
+      "deleteReason": "清理历史站会记录",
+      "deleteType": "batch",
+      "timestamp": "2024-03-15T12:00:00Z"
+    }
+  ],
+  "deleteValidation": {
+    "confirmRequired": true,
+    "confirmMessage": "确定要删除这个任务吗？此操作不可恢复。",
+    "batchDeleteLimit": 10,
+    "protectedTasks": {
+      "conditions": [
+        "completedPomodoros > 0",
+        "hasDependencies == true",
+        "isRecurring == true"
+      ],
+      "requireReason": true
+    }
+  }
+} 

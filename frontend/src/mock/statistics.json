@@ -1,0 +1,290 @@
+{
+  "totalPomodoros": 185,
+  "completedTasks": 18,
+  "totalFocusTime": 4625,
+  "dailyStats": [
+    {
+      "date": "2024-03-15",
+      "pomodoros": 15,
+      "completedTasks": 3
+    },
+    {
+      "date": "2024-03-14",
+      "pomodoros": 18,
+      "completedTasks": 4
+    },
+    {
+      "date": "2024-03-13",
+      "pomodoros": 12,
+      "completedTasks": 2
+    },
+    {
+      "date": "2024-03-12",
+      "pomodoros": 10,
+      "completedTasks": 2
+    },
+    {
+      "date": "2024-03-11",
+      "pomodoros": 16,
+      "completedTasks": 3
+    },
+    {
+      "date": "2024-03-10",
+      "pomodoros": 8,
+      "completedTasks": 1
+    },
+    {
+      "date": "2024-03-09",
+      "pomodoros": 11,
+      "completedTasks": 2
+    },
+    {
+      "date": "2024-03-08",
+      "pomodoros": 9,
+      "completedTasks": 2
+    },
+    {
+      "date": "2024-03-07",
+      "pomodoros": 14,
+      "completedTasks": 2
+    },
+    {
+      "date": "2024-03-06",
+      "pomodoros": 12,
+      "completedTasks": 2
+    },
+    {
+      "date": "2024-03-05",
+      "pomodoros": 7,
+      "completedTasks": 1
+    },
+    {
+      "date": "2024-03-04",
+      "pomodoros": 6,
+      "completedTasks": 1
+    }
+  ],
+  "categoryStats": [
+    {
+      "name": "工作",
+      "value": 65,
+      "color": "#ff6347"
+    },
+    {
+      "name": "学习",
+      "value": 45,
+      "color": "#2196f3"
+    },
+    {
+      "name": "文档",
+      "value": 35,
+      "color": "#4caf50"
+    },
+    {
+      "name": "开发",
+      "value": 30,
+      "color": "#9c27b0"
+    },
+    {
+      "name": "阅读",
+      "value": 25,
+      "color": "#ff9800"
+    },
+    {
+      "name": "优化",
+      "value": 15,
+      "color": "#795548"
+    },
+    {
+      "name": "DevOps",
+      "value": 10,
+      "color": "#607d8b"
+    },
+    {
+      "name": "修复",
+      "value": 8,
+      "color": "#f44336"
+    }
+  ],
+  "weeklyTrend": {
+    "dates": ["3-4", "3-5", "3-6", "3-7", "3-8", "3-9", "3-10", "3-11", "3-12", "3-13", "3-14", "3-15"],
+    "pomodoros": [6, 7, 12, 14, 9, 11, 8, 16, 10, 12, 18, 15],
+    "tasks": [1, 1, 2, 2, 2, 2, 1, 3, 2, 2, 4, 3]
+  },
+  "monthlyTrend": {
+    "dates": ["2-15", "2-22", "2-29", "3-7", "3-14"],
+    "pomodoros": [85, 92, 88, 95, 98],
+    "tasks": [18, 20, 19, 21, 22]
+  },
+  "daily": {
+    "2024-03-15": {
+      "totalPomodoros": 15,
+      "completedTasks": 3,
+      "focusTime": 375,
+      "breakTime": 180,
+      "tags": {
+        "工作": 6,
+        "文档": 3,
+        "学习": 4,
+        "开发": 2
+      }
+    },
+    "2024-03-14": {
+      "totalPomodoros": 18,
+      "completedTasks": 4,
+      "focusTime": 450,
+      "breakTime": 210,
+      "tags": {
+        "工作": 8,
+        "学习": 5,
+        "文档": 3,
+        "开发": 2
+      }
+    },
+    "2024-03-13": {
+      "totalPomodoros": 12,
+      "completedTasks": 2,
+      "focusTime": 300,
+      "breakTime": 150,
+      "tags": {
+        "工作": 5,
+        "学习": 4,
+        "文档": 2,
+        "开发": 1
+      }
+    }
+  },
+  "weekly": {
+    "2024-W11": {
+      "totalPomodoros": 95,
+      "completedTasks": 19,
+      "focusTime": 2375,
+      "breakTime": 1185,
+      "tags": {
+        "工作": 35,
+        "学习": 25,
+        "文档": 15,
+        "开发": 12,
+        "阅读": 5,
+        "优化": 3
+      },
+      "dailyAverage": 13.6,
+      "completionRate": 0.82
+    },
+    "2024-W10": {
+      "totalPomodoros": 90,
+      "completedTasks": 17,
+      "focusTime": 2250,
+      "breakTime": 1125,
+      "tags": {
+        "工作": 30,
+        "学习": 20,
+        "文档": 20,
+        "开发": 18,
+        "阅读": 2
+      },
+      "dailyAverage": 12.9,
+      "completionRate": 0.78
+    }
+  },
+  "monthly": {
+    "2024-03": {
+      "totalPomodoros": 185,
+      "completedTasks": 36,
+      "focusTime": 4625,
+      "breakTime": 2310,
+      "tags": {
+        "工作": 65,
+        "学习": 45,
+        "文档": 35,
+        "开发": 30,
+        "阅读": 25,
+        "优化": 15,
+        "DevOps": 10,
+        "修复": 8
+      },
+      "dailyAverage": 12.3,
+      "completionRate": 0.80
+    },
+    "2024-02": {
+      "totalPomodoros": 165,
+      "completedTasks": 32,
+      "focusTime": 4125,
+      "breakTime": 2060,
+      "tags": {
+        "工作": 60,
+        "学习": 40,
+        "文档": 30,
+        "开发": 25,
+        "阅读": 20,
+        "优化": 10
+      },
+      "dailyAverage": 11.8,
+      "completionRate": 0.76
+    }
+  },
+  "tags": {
+    "工作": {
+      "totalPomodoros": 65,
+      "completedTasks": 12,
+      "focusTime": 1625,
+      "breakTime": 810
+    },
+    "学习": {
+      "totalPomodoros": 45,
+      "completedTasks": 8,
+      "focusTime": 1125,
+      "breakTime": 560
+    },
+    "文档": {
+      "totalPomodoros": 35,
+      "completedTasks": 7,
+      "focusTime": 875,
+      "breakTime": 435
+    },
+    "开发": {
+      "totalPomodoros": 30,
+      "completedTasks": 5,
+      "focusTime": 750,
+      "breakTime": 375
+    },
+    "阅读": {
+      "totalPomodoros": 25,
+      "completedTasks": 4,
+      "focusTime": 625,
+      "breakTime": 310
+    },
+    "优化": {
+      "totalPomodoros": 15,
+      "completedTasks": 2,
+      "focusTime": 375,
+      "breakTime": 185
+    },
+    "DevOps": {
+      "totalPomodoros": 10,
+      "completedTasks": 1,
+      "focusTime": 250,
+      "breakTime": 125
+    },
+    "修复": {
+      "totalPomodoros": 8,
+      "completedTasks": 1,
+      "focusTime": 200,
+      "breakTime": 100
+    }
+  },
+  "summary": {
+    "totalPomodoros": 185,
+    "totalTasks": 35,
+    "completedTasks": 18,
+    "totalFocusTime": 4625,
+    "totalBreakTime": 2310,
+    "averageDailyPomodoros": 12.3,
+    "averageTaskPomodoros": 5.29,
+    "completionRate": 0.514,
+    "mostProductiveDay": "2024-03-14",
+    "mostProductiveTag": "工作",
+    "currentStreak": 7,
+    "longestStreak": 10
+  }
+} 

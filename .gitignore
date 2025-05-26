@@ -1,0 +1,40 @@
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.log
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env
+.env.local
+.env.*.local
+dist/
+dist-ssr/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# SQLite
+*.db
+*.db-journal
+
+# Build
+/build/
+/dist/ 

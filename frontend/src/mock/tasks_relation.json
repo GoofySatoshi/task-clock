@@ -1,0 +1,156 @@
+{
+  "taskRelations": [
+    {
+      "id": "r1",
+      "parentTask": {
+        "id": "pt1",
+        "title": "项目重构",
+        "description": "对现有项目进行架构重构，提高代码质量和可维护性",
+        "tags": ["重构", "架构"],
+        "estimatedPomodoros": 20,
+        "completedPomodoros": 8,
+        "status": "in_progress"
+      },
+      "childTasks": [
+        {
+          "id": "ct1",
+          "title": "数据库优化",
+          "description": "优化数据库结构和查询性能",
+          "tags": ["重构", "数据库"],
+          "estimatedPomodoros": 6,
+          "completedPomodoros": 3,
+          "status": "in_progress",
+          "dependencies": [
+            {
+              "id": "ct2",
+              "type": "blocks",
+              "status": "completed"
+            }
+          ]
+        },
+        {
+          "id": "ct2",
+          "title": "代码结构重组",
+          "description": "重新组织代码结构，提取公共模块",
+          "tags": ["重构", "代码"],
+          "estimatedPomodoros": 8,
+          "completedPomodoros": 5,
+          "status": "in_progress"
+        },
+        {
+          "id": "ct3",
+          "title": "单元测试补充",
+          "description": "为重构后的代码补充单元测试",
+          "tags": ["重构", "测试"],
+          "estimatedPomodoros": 6,
+          "completedPomodoros": 0,
+          "status": "pending",
+          "dependencies": [
+            {
+              "id": "ct1",
+              "type": "blocks",
+              "status": "pending"
+            },
+            {
+              "id": "ct2",
+              "type": "blocks",
+              "status": "pending"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r2",
+      "parentTask": {
+        "id": "pt2",
+        "title": "新功能开发：用户中心",
+        "description": "开发用户中心模块，包括用户信息管理、权限控制等功能",
+        "tags": ["开发", "新功能"],
+        "estimatedPomodoros": 16,
+        "completedPomodoros": 0,
+        "status": "pending"
+      },
+      "childTasks": [
+        {
+          "id": "ct4",
+          "title": "用户信息管理",
+          "description": "实现用户基本信息的CRUD功能",
+          "tags": ["开发", "用户"],
+          "estimatedPomodoros": 4,
+          "completedPomodoros": 0,
+          "status": "pending"
+        },
+        {
+          "id": "ct5",
+          "title": "权限系统开发",
+          "description": "实现基于角色的权限控制系统",
+          "tags": ["开发", "权限"],
+          "estimatedPomodoros": 6,
+          "completedPomodoros": 0,
+          "status": "pending",
+          "dependencies": [
+            {
+              "id": "ct4",
+              "type": "blocks",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "ct6",
+          "title": "用户界面开发",
+          "description": "开发用户中心的界面和交互",
+          "tags": ["开发", "前端"],
+          "estimatedPomodoros": 6,
+          "completedPomodoros": 0,
+          "status": "pending",
+          "dependencies": [
+            {
+              "id": "ct4",
+              "type": "blocks",
+              "status": "pending"
+            },
+            {
+              "id": "ct5",
+              "type": "blocks",
+              "status": "pending"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "relationTypes": {
+    "parentChild": {
+      "name": "父子关系",
+      "description": "任务之间的层级关系，子任务完成情况影响父任务进度",
+      "rules": {
+        "maxDepth": 3,
+        "allowCircular": false,
+        "autoProgress": true
+      }
+    },
+    "dependencies": {
+      "types": [
+        {
+          "name": "blocks",
+          "description": "阻塞关系，被依赖任务完成后才能开始依赖任务"
+        },
+        {
+          "name": "relates",
+          "description": "关联关系，任务之间有关联但不强制依赖"
+        },
+        {
+          "name": "duplicates",
+          "description": "重复关系，任务内容重复或相似"
+        }
+      ],
+      "rules": {
+        "maxDependencies": 5,
+        "allowCircular": false,
+        "autoStatus": true
+      }
+    }
+  }
+} 

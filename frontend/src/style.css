@@ -1,0 +1,419 @@
+:root {
+  /* 主题颜色 - 浅色模式默认值 */
+  --primary-color: #ff6347;
+  --bg-color: #f5f5f5;
+  --text-color: #333333;
+  --text-color-secondary: #666666;
+  --nav-bg: #ffffff;
+  --border-color: #e0e0e0;
+  --hover-color: #f0f0f0;
+  --active-color: #fff0ed;
+  --skeleton-color: #e0e0e0;
+  --skeleton-color-light: #f5f5f5;
+  --card-bg: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --transition-duration: 0.3s;
+
+  /* Element Plus 浅色模式变量 */
+  --el-bg-color: var(--bg-color);
+  --el-bg-color-overlay: var(--card-bg);
+  --el-text-color-primary: var(--text-color);
+  --el-text-color-regular: var(--text-color-secondary);
+  --el-border-color: var(--border-color);
+  --el-border-color-light: var(--border-color);
+  --el-fill-color-blank: var(--card-bg);
+  --el-fill-color-light: var(--hover-color);
+  --el-mask-color: rgba(0, 0, 0, 0.8);
+  --el-mask-color-extra-light: rgba(0, 0, 0, 0.3);
+
+  /* 字体 */
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  font-family: var(--font-family);
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  transition: background-color var(--transition-duration), color var(--transition-duration);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 深色模式 */
+.dark-mode {
+  /* 主题颜色 */
+  --primary-color: #ff6347;
+  --text-color: #ffffff;
+  --text-color-secondary: #a0a0a0;
+  --bg-color: #1a1a1a;
+  --card-bg: #2d2d2d;
+  --nav-bg: #2d2d2d;
+  --border-color: #404040;
+  --hover-color: #404040;
+  --active-color: #404040;
+  --skeleton-color: #2d2d2d;
+  --skeleton-color-light: #404040;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+
+  /* Element Plus 深色模式变量 */
+  --el-bg-color: var(--bg-color);
+  --el-bg-color-overlay: var(--card-bg);
+  --el-text-color-primary: var(--text-color);
+  --el-text-color-regular: var(--text-color-secondary);
+  --el-border-color: var(--border-color);
+  --el-border-color-light: var(--border-color);
+  --el-fill-color-blank: var(--card-bg);
+  --el-fill-color-light: var(--hover-color);
+  --el-mask-color: rgba(0, 0, 0, 0.8);
+  --el-mask-color-extra-light: rgba(0, 0, 0, 0.3);
+}
+
+/* 确保所有元素都继承主题变量 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color var(--transition-duration), 
+              color var(--transition-duration), 
+              border-color var(--transition-duration),
+              box-shadow var(--transition-duration);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 图标字体 */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v140/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 自定义图标类 */
+.icon-timer::before { content: '⏱️'; }
+.icon-tasks::before { content: '📋'; }
+.icon-stats::before { content: '📊'; }
+.icon-settings::before { content: '⚙️'; }
+.icon-plus::before { content: '➕'; }
+.icon-edit::before { content: '✏️'; }
+.icon-delete::before { content: '🗑️'; }
+.icon-play::before { content: '▶️'; }
+.icon-pause::before { content: '⏸️'; }
+.icon-reset::before { content: '🔄'; }
+
+/* 通用样式 */
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-duration);
+}
+
+a:hover {
+  color: var(--text-color);
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-color-secondary);
+}
+
+/* 动画 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.3s ease;
+}
+
+.slide-enter-from,
+.slide-leave-to {
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+/* Element Plus 深色模式覆盖 */
+.dark-mode .el-card {
+  --el-card-bg-color: var(--card-bg);
+  --el-card-border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+.dark-mode .el-button {
+  --el-button-bg-color: var(--nav-bg);
+  --el-button-border-color: var(--border-color);
+  --el-button-hover-bg-color: var(--hover-color);
+  --el-button-hover-border-color: var(--border-color);
+  --el-button-active-bg-color: var(--active-color);
+  --el-button-active-border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+.dark-mode .el-input {
+  --el-input-bg-color: var(--nav-bg);
+  --el-input-border-color: var(--border-color);
+  --el-input-hover-border-color: var(--border-color);
+  --el-input-focus-border-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+.dark-mode .el-input__inner {
+  color: var(--text-color);
+}
+
+.dark-mode .el-textarea__inner {
+  background-color: var(--nav-bg);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+.dark-mode .el-dialog {
+  --el-dialog-bg-color: var(--card-bg);
+  --el-dialog-border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+.dark-mode .el-dialog__title {
+  color: var(--text-color);
+}
+
+.dark-mode .el-form-item__label {
+  color: var(--text-color);
+}
+
+.dark-mode .el-select {
+  --el-select-border-color: var(--border-color);
+  --el-select-hover-border-color: var(--border-color);
+  --el-select-focus-border-color: var(--primary-color);
+}
+
+.dark-mode .el-select-dropdown {
+  --el-select-dropdown-bg-color: var(--card-bg);
+  --el-select-dropdown-border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+.dark-mode .el-select-dropdown__item {
+  color: var(--text-color);
+}
+
+.dark-mode .el-select-dropdown__item.hover,
+.dark-mode .el-select-dropdown__item:hover {
+  background-color: var(--hover-color);
+}
+
+.dark-mode .el-select-dropdown__item.selected {
+  color: var(--primary-color);
+  background-color: var(--active-color);
+}
+
+.dark-mode .el-menu {
+  --el-menu-bg-color: transparent;
+  --el-menu-text-color: var(--text-color);
+  --el-menu-hover-bg-color: var(--hover-color);
+  --el-menu-active-color: var(--primary-color);
+  border-right-color: var(--border-color);
+}
+
+.dark-mode .el-menu-item {
+  color: var(--text-color);
+}
+
+.dark-mode .el-menu-item.is-active {
+  color: var(--primary-color);
+  background-color: var(--active-color);
+}
+
+.dark-mode .el-menu-item:hover {
+  background-color: var(--hover-color);
+}
+
+.dark-mode .el-badge__content {
+  --el-badge-bg-color: var(--primary-color);
+  color: #ffffff;
+}
+
+/* 确保深色模式下跳过休息按钮样式正确 */
+.dark-mode .skip-break-btn {
+  color: var(--text-color-secondary);
+}
+
+.dark-mode .skip-break-btn:hover {
+  color: var(--primary-color);
+  background-color: var(--hover-color);
+}
+
+/* 确保深色模式下计时器显示正确 */
+.dark-mode .timer-display .time {
+  color: var(--text-color);
+}
+
+.dark-mode .timer-scoreboard {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+.dark-mode .scoreboard-label {
+  color: var(--text-color-secondary);
+}
+
+.dark-mode .scoreboard-value {
+  color: var(--text-color);
+}
+
+.dark-mode .scoreboard-divider {
+  background-color: var(--border-color);
+}
+
+/* 确保深色模式下任务信息显示正确 */
+.dark-mode .task-info-float {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+.dark-mode .task-info-title .task-title {
+  color: var(--text-color);
+}
+
+.dark-mode .task-info-meta {
+  color: var(--text-color-secondary);
+}
+
+.dark-mode .task-description {
+  color: var(--text-color-secondary);
+}
+
+.dark-mode .task-category {
+  color: var(--text-color-secondary);
+}
+
+/* 确保深色模式下进度环显示正确 */
+.dark-mode .progress-ring-circle-bg {
+  stroke: var(--border-color);
+}
+
+.dark-mode .progress-ring-circle {
+  stroke: var(--primary-color);
+}
+
+/* 确保所有 Element Plus 组件样式正确 */
+.el-button {
+  --el-button-bg-color: var(--nav-bg);
+  --el-button-border-color: var(--border-color);
+  --el-button-hover-bg-color: var(--hover-color);
+  --el-button-hover-border-color: var(--border-color);
+  --el-button-active-bg-color: var(--active-color);
+  --el-button-active-border-color: var(--border-color);
+}
+
+.el-card {
+  --el-card-bg-color: var(--card-bg);
+  --el-card-border-color: var(--border-color);
+}
+
+.el-input {
+  --el-input-bg-color: var(--nav-bg);
+  --el-input-border-color: var(--border-color);
+  --el-input-hover-border-color: var(--border-color);
+  --el-input-focus-border-color: var(--primary-color);
+}
+
+.el-dialog {
+  --el-dialog-bg-color: var(--card-bg);
+  --el-dialog-border-color: var(--border-color);
+}
+
+.el-menu {
+  --el-menu-bg-color: transparent;
+  --el-menu-text-color: var(--text-color);
+  --el-menu-hover-bg-color: var(--hover-color);
+  --el-menu-active-color: var(--primary-color);
+}
+
+/* 文本选择样式 */
+::selection {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}

@@ -1,0 +1,59 @@
+{
+  "tasks": [
+    {
+      "id": "w1",
+      "title": "项目周报编写",
+      "description": "整理本周项目进展，编写周报文档，包括完成的功能点和遇到的问题",
+      "tags": ["工作", "文档", "周报"],
+      "completed": true,
+      "completedPomodoros": 4,
+      "estimatedPomodoros": 4,
+      "createdAt": "2024-03-15T09:00:00Z",
+      "updatedAt": "2024-03-15T11:30:00Z"
+    },
+    {
+      "id": "w2",
+      "title": "代码重构优化",
+      "description": "对用户管理模块进行代码重构，提高代码可维护性和性能",
+      "tags": ["工作", "开发", "重构"],
+      "completed": false,
+      "completedPomodoros": 2,
+      "estimatedPomodoros": 6,
+      "createdAt": "2024-03-15T13:00:00Z",
+      "updatedAt": "2024-03-15T15:00:00Z"
+    },
+    {
+      "id": "w3",
+      "title": "团队技术分享",
+      "description": "准备关于微服务架构的技术分享PPT和演示demo",
+      "tags": ["工作", "分享", "技术"],
+      "completed": false,
+      "completedPomodoros": 0,
+      "estimatedPomodoros": 8,
+      "createdAt": "2024-03-14T10:00:00Z",
+      "updatedAt": "2024-03-14T10:00:00Z"
+    },
+    {
+      "id": "w4",
+      "title": "Bug修复",
+      "description": "修复用户反馈的登录模块异常问题",
+      "tags": ["工作", "Bug", "修复"],
+      "completed": true,
+      "completedPomodoros": 3,
+      "estimatedPomodoros": 3,
+      "createdAt": "2024-03-13T14:00:00Z",
+      "updatedAt": "2024-03-13T16:30:00Z"
+    },
+    {
+      "id": "w5",
+      "title": "需求评审会议",
+      "description": "参与新功能需求评审，准备相关技术方案",
+      "tags": ["工作", "会议", "需求"],
+      "completed": true,
+      "completedPomodoros": 2,
+      "estimatedPomodoros": 2,
+      "createdAt": "2024-03-13T09:00:00Z",
+      "updatedAt": "2024-03-13T10:30:00Z"
+    }
+  ]
+} 

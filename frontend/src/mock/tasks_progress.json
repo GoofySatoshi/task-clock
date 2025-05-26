@@ -1,0 +1,135 @@
+{
+  "taskProgress": [
+    {
+      "id": "p1",
+      "task": {
+        "id": "t1",
+        "title": "学习Vue3高级特性",
+        "description": "深入学习Vue3的组合式API、响应式系统等高级特性",
+        "tags": ["学习", "Vue3", "前端"],
+        "estimatedPomodoros": 12,
+        "completedPomodoros": 4,
+        "createdAt": "2024-03-15T09:00:00Z",
+        "updatedAt": "2024-03-15T15:00:00Z",
+        "expectedStartTime": "2024-03-15T09:00:00Z",
+        "expectedEndTime": "2024-03-20T18:00:00Z",
+        "actualStartTime": "2024-03-15T09:30:00Z",
+        "actualEndTime": null,
+        "progress": {
+          "percentage": 33.33,
+          "status": "in_progress",
+          "remainingPomodoros": 8,
+          "estimatedCompletionTime": "2024-03-21T12:00:00Z",
+          "dailyProgress": [
+            {
+              "date": "2024-03-15",
+              "completedPomodoros": 2,
+              "focusTime": 50,
+              "efficiency": 0.85
+            },
+            {
+              "date": "2024-03-16",
+              "completedPomodoros": 2,
+              "focusTime": 45,
+              "efficiency": 0.90
+            }
+          ]
+        },
+        "subTasks": [
+          {
+            "id": "st1",
+            "title": "学习组合式API",
+            "description": "掌握setup、ref、reactive等组合式API的使用",
+            "estimatedPomodoros": 4,
+            "completedPomodoros": 2,
+            "status": "in_progress"
+          },
+          {
+            "id": "st2",
+            "title": "学习响应式系统",
+            "description": "深入理解Vue3的响应式系统原理",
+            "estimatedPomodoros": 4,
+            "completedPomodoros": 0,
+            "status": "pending"
+          },
+          {
+            "id": "st3",
+            "title": "实践项目开发",
+            "description": "使用Vue3高级特性开发一个小型项目",
+            "estimatedPomodoros": 4,
+            "completedPomodoros": 0,
+            "status": "pending"
+          }
+        ]
+      }
+    },
+    {
+      "id": "p2",
+      "task": {
+        "id": "t2",
+        "title": "后端API开发",
+        "description": "开发用户管理模块的RESTful API",
+        "tags": ["开发", "后端", "API"],
+        "estimatedPomodoros": 8,
+        "completedPomodoros": 6,
+        "createdAt": "2024-03-14T09:00:00Z",
+        "updatedAt": "2024-03-16T11:00:00Z",
+        "expectedStartTime": "2024-03-14T09:00:00Z",
+        "expectedEndTime": "2024-03-16T18:00:00Z",
+        "actualStartTime": "2024-03-14T09:15:00Z",
+        "actualEndTime": null,
+        "progress": {
+          "percentage": 75.00,
+          "status": "in_progress",
+          "remainingPomodoros": 2,
+          "estimatedCompletionTime": "2024-03-16T15:00:00Z",
+          "dailyProgress": [
+            {
+              "date": "2024-03-14",
+              "completedPomodoros": 3,
+              "focusTime": 75,
+              "efficiency": 0.95
+            },
+            {
+              "date": "2024-03-15",
+              "completedPomodoros": 2,
+              "focusTime": 50,
+              "efficiency": 0.90
+            },
+            {
+              "date": "2024-03-16",
+              "completedPomodoros": 1,
+              "focusTime": 25,
+              "efficiency": 0.85
+            }
+          ]
+        },
+        "dependencies": [
+          {
+            "id": "d1",
+            "taskId": "t3",
+            "type": "blocks",
+            "status": "completed"
+          }
+        ]
+      }
+    }
+  ],
+  "progressMetrics": {
+    "efficiencyThresholds": {
+      "high": 0.9,
+      "medium": 0.7,
+      "low": 0.5
+    },
+    "focusTimeThresholds": {
+      "high": 60,
+      "medium": 30,
+      "low": 15
+    },
+    "completionTrends": {
+      "ahead": 1.2,
+      "onTrack": 1.0,
+      "behind": 0.8
+    }
+  }
+} 

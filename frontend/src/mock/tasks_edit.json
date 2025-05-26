@@ -1,0 +1,89 @@
+{
+  "editScenarios": [
+    {
+      "id": "e1",
+      "originalTask": {
+        "id": "t1",
+        "title": "完成用户登录模块",
+        "description": "实现用户登录功能，包括表单验证和错误处理",
+        "tags": ["开发", "前端"],
+        "estimatedPomodoros": 4,
+        "completed": false,
+        "completedPomodoros": 1,
+        "createdAt": "2024-03-15T09:00:00Z",
+        "updatedAt": "2024-03-15T10:00:00Z"
+      },
+      "editOperations": [
+        {
+          "type": "update",
+          "field": "title",
+          "value": "完成用户登录模块（包含记住密码功能）",
+          "timestamp": "2024-03-15T11:00:00Z"
+        },
+        {
+          "type": "update",
+          "field": "estimatedPomodoros",
+          "value": 6,
+          "timestamp": "2024-03-15T11:00:00Z"
+        },
+        {
+          "type": "add",
+          "field": "tags",
+          "value": "安全",
+          "timestamp": "2024-03-15T11:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "e2",
+      "originalTask": {
+        "id": "t2",
+        "title": "每日代码审查",
+        "description": "审查团队代码提交",
+        "tags": ["工作"],
+        "estimatedPomodoros": 2,
+        "completed": false,
+        "completedPomodoros": 0,
+        "createdAt": "2024-03-15T14:00:00Z",
+        "updatedAt": "2024-03-15T14:00:00Z"
+      },
+      "editOperations": [
+        {
+          "type": "update",
+          "field": "recurring",
+          "value": "daily",
+          "timestamp": "2024-03-15T15:00:00Z"
+        },
+        {
+          "type": "update",
+          "field": "priority",
+          "value": "high",
+          "timestamp": "2024-03-15T15:00:00Z"
+        }
+      ]
+    }
+  ],
+  "editValidation": {
+    "allowedFields": [
+      "title",
+      "description",
+      "tags",
+      "estimatedPomodoros",
+      "priority",
+      "dueDate",
+      "recurring"
+    ],
+    "fieldRules": {
+      "title": {
+        "minLength": 2,
+        "maxLength": 100,
+        "allowEmpty": false
+      },
+      "estimatedPomodoros": {
+        "min": 1,
+        "max": 20,
+        "allowDecrease": false
+      }
+    }
+  }
+} 

@@ -1,0 +1,168 @@
+{
+  "priorityLevels": [
+    {
+      "level": "urgent",
+      "name": "紧急",
+      "description": "需要立即处理的任务",
+      "color": "#F44336",
+      "icon": "priority_high",
+      "rules": {
+        "maxTasks": 3,
+        "reminderInterval": 30,
+        "autoEscalation": true
+      }
+    },
+    {
+      "level": "high",
+      "name": "高",
+      "description": "重要且需要优先处理的任务",
+      "color": "#FF9800",
+      "icon": "arrow_upward",
+      "rules": {
+        "maxTasks": 5,
+        "reminderInterval": 60,
+        "autoEscalation": true
+      }
+    },
+    {
+      "level": "medium",
+      "name": "中",
+      "description": "普通优先级的任务",
+      "color": "#2196F3",
+      "icon": "remove",
+      "rules": {
+        "maxTasks": 10,
+        "reminderInterval": 120,
+        "autoEscalation": false
+      }
+    },
+    {
+      "level": "low",
+      "name": "低",
+      "description": "可以稍后处理的任务",
+      "color": "#4CAF50",
+      "icon": "arrow_downward",
+      "rules": {
+        "maxTasks": 20,
+        "reminderInterval": 240,
+        "autoEscalation": false
+      }
+    }
+  ],
+  "reminderSettings": {
+    "notificationTypes": [
+      {
+        "type": "browser",
+        "name": "浏览器通知",
+        "enabled": true,
+        "sound": true
+      },
+      {
+        "type": "desktop",
+        "name": "桌面通知",
+        "enabled": true,
+        "sound": true
+      },
+      {
+        "type": "email",
+        "name": "邮件通知",
+        "enabled": false,
+        "sound": false
+      }
+    ],
+    "reminderTemplates": [
+      {
+        "id": "rt1",
+        "name": "任务开始提醒",
+        "template": "任务「{taskTitle}」即将开始，预计需要{estimatedPomodoros}个番茄钟",
+        "advanceTime": 15
+      },
+      {
+        "id": "rt2",
+        "name": "任务截止提醒",
+        "template": "任务「{taskTitle}」即将截止，剩余{remainingPomodoros}个番茄钟",
+        "advanceTime": 60
+      },
+      {
+        "id": "rt3",
+        "name": "任务逾期提醒",
+        "template": "任务「{taskTitle}」已逾期{overdueTime}，请尽快处理",
+        "advanceTime": 0
+      }
+    ]
+  },
+  "priorityTasks": [
+    {
+      "id": "pt1",
+      "title": "修复生产环境Bug",
+      "description": "紧急修复用户反馈的生产环境问题",
+      "priority": "urgent",
+      "dueDate": "2024-03-16T18:00:00Z",
+      "reminders": [
+        {
+          "type": "browser",
+          "time": "2024-03-16T17:30:00Z",
+          "status": "pending"
+        },
+        {
+          "type": "desktop",
+          "time": "2024-03-16T17:45:00Z",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "pt2",
+      "title": "准备技术分享",
+      "description": "准备下周团队技术分享的内容",
+      "priority": "high",
+      "dueDate": "2024-03-18T18:00:00Z",
+      "reminders": [
+        {
+          "type": "browser",
+          "time": "2024-03-18T17:00:00Z",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "pt3",
+      "title": "代码审查",
+      "description": "审查团队成员的代码提交",
+      "priority": "medium",
+      "dueDate": "2024-03-17T18:00:00Z",
+      "reminders": [
+        {
+          "type": "browser",
+          "time": "2024-03-17T16:00:00Z",
+          "status": "pending"
+        }
+      ]
+    }
+  ],
+  "priorityRules": {
+    "autoPriority": {
+      "enabled": true,
+      "rules": [
+        {
+          "condition": "dueDate < now + 24h",
+          "priority": "urgent"
+        },
+        {
+          "condition": "dueDate < now + 72h",
+          "priority": "high"
+        },
+        {
+          "condition": "dependencies.length > 2",
+          "priority": "high"
+        }
+      ]
+    },
+    "priorityLimits": {
+      "urgent": 3,
+      "high": 5,
+      "medium": 10,
+      "low": 20
+    }
+  }
+} 

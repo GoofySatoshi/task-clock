@@ -1,0 +1,40 @@
+{
+  "workDuration": 25,
+  "shortBreakDuration": 5,
+  "longBreakDuration": 15,
+  "longBreakInterval": 4,
+  "soundEnabled": true,
+  "notificationEnabled": true,
+  "autoStartBreaks": false,
+  "autoStartPomodoros": false,
+  "themeColor": "#ff6347",
+  "darkMode": false,
+  "soundVolume": 0.8,
+  "notificationSound": "bell",
+  "taskListSort": "createdAt",
+  "taskListOrder": "desc",
+  "showCompletedTasks": true,
+  "showTaskProgress": true,
+  "showTaskTags": true,
+  "showTaskStats": true,
+  "defaultTaskTags": [
+    {
+      "name": "工作",
+      "color": "#ff6347"
+    },
+    {
+      "name": "学习",
+      "color": "#2196f3"
+    },
+    {
+      "name": "阅读",
+      "color": "#4caf50"
+    },
+    {
+      "name": "健康",
+      "color": "#9c27b0"
+    }
+  ],
+  "lastBackup": "2024-03-15T10:30:00Z",
+  "version": "1.0.0"
+} 

@@ -1,0 +1,37 @@
+{
+  "tasks": [
+    {
+      "id": "1",
+      "title": "完成项目文档",
+      "description": "编写项目需求文档和技术方案，包括功能列表和实现细节",
+      "tags": ["工作", "文档", "重要"],
+      "completed": false,
+      "completedPomodoros": 2,
+      "estimatedPomodoros": 4,
+      "createdAt": "2024-03-15T08:00:00Z",
+      "updatedAt": "2024-03-15T10:30:00Z"
+    },
+    {
+      "id": "2",
+      "title": "学习 Vue 3 组合式 API",
+      "description": "阅读 Vue 3 官方文档，练习组合式 API 的使用，完成示例项目",
+      "tags": ["学习", "Vue", "前端"],
+      "completed": true,
+      "completedPomodoros": 3,
+      "estimatedPomodoros": 3,
+      "createdAt": "2024-03-14T14:00:00Z",
+      "updatedAt": "2024-03-14T16:30:00Z"
+    },
+    {
+      "id": "3",
+      "title": "阅读《深入理解计算机系统》",
+      "description": "阅读第 3 章：程序的机器级表示，完成课后习题",
+      "tags": ["阅读", "计算机", "学习"],
+      "completed": false,
+      "completedPomodoros": 1,
+      "estimatedPomodoros": 2,
+      "createdAt": "2024-03-13T20:00:00Z",
+      "updatedAt": "2024-03-13T21:00:00Z"
+    }
+  ]
+} 

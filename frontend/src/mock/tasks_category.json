@@ -1,0 +1,123 @@
+{
+  "categories": [
+    {
+      "id": "cat1",
+      "name": "工作",
+      "description": "工作相关的任务",
+      "color": "#4CAF50",
+      "icon": "work",
+      "subCategories": [
+        {
+          "id": "sub1",
+          "name": "开发",
+          "description": "软件开发相关任务",
+          "color": "#2196F3",
+          "icon": "code",
+          "tags": ["前端", "后端", "API", "数据库", "测试", "重构", "优化"]
+        },
+        {
+          "id": "sub2",
+          "name": "会议",
+          "description": "会议相关任务",
+          "color": "#FF9800",
+          "icon": "meeting",
+          "tags": ["站会", "评审", "讨论", "分享", "培训"]
+        },
+        {
+          "id": "sub3",
+          "name": "文档",
+          "description": "文档编写任务",
+          "color": "#9C27B0",
+          "icon": "document",
+          "tags": ["需求", "设计", "周报", "总结", "规范"]
+        }
+      ]
+    },
+    {
+      "id": "cat2",
+      "name": "学习",
+      "description": "学习相关的任务",
+      "color": "#E91E63",
+      "icon": "school",
+      "subCategories": [
+        {
+          "id": "sub4",
+          "name": "技术学习",
+          "description": "技术相关的学习任务",
+          "color": "#00BCD4",
+          "icon": "tech",
+          "tags": ["编程", "框架", "算法", "架构", "工具"]
+        },
+        {
+          "id": "sub5",
+          "name": "语言学习",
+          "description": "语言学习任务",
+          "color": "#FFEB3B",
+          "icon": "language",
+          "tags": ["英语", "日语", "口语", "写作", "听力"]
+        }
+      ]
+    },
+    {
+      "id": "cat3",
+      "name": "生活",
+      "description": "生活相关的任务",
+      "color": "#795548",
+      "icon": "life",
+      "subCategories": [
+        {
+          "id": "sub6",
+          "name": "健康",
+          "description": "健康相关的任务",
+          "color": "#F44336",
+          "icon": "health",
+          "tags": ["健身", "饮食", "作息", "运动", "休息"]
+        },
+        {
+          "id": "sub7",
+          "name": "个人",
+          "description": "个人事务任务",
+          "color": "#607D8B",
+          "icon": "personal",
+          "tags": ["阅读", "写作", "兴趣", "整理", "计划"]
+        }
+      ]
+    }
+  ],
+  "tagRules": {
+    "maxTagsPerTask": 5,
+    "requiredTags": {
+      "work": ["工作"],
+      "learning": ["学习"],
+      "life": ["生活"]
+    },
+    "tagSuggestions": {
+      "开发": ["前端", "后端", "测试", "重构"],
+      "学习": ["编程", "框架", "算法"],
+      "健身": ["力量", "有氧", "拉伸"]
+    }
+  },
+  "categoryStats": {
+    "work": {
+      "totalTasks": 25,
+      "completedTasks": 15,
+      "totalPomodoros": 120,
+      "completedPomodoros": 85,
+      "averageEfficiency": 0.88
+    },
+    "learning": {
+      "totalTasks": 18,
+      "completedTasks": 10,
+      "totalPomodoros": 90,
+      "completedPomodoros": 45,
+      "averageEfficiency": 0.82
+    },
+    "life": {
+      "totalTasks": 12,
+      "completedTasks": 8,
+      "totalPomodoros": 48,
+      "completedPomodoros": 35,
+      "averageEfficiency": 0.90
+    }
+  }
+} 

@@ -1,0 +1,118 @@
+{
+  "createExamples": [
+    {
+      "id": "c1",
+      "title": "新功能开发：用户数据分析面板",
+      "description": "开发用户行为数据分析面板，包括用户活跃度、使用时长等关键指标的统计和可视化展示",
+      "tags": ["开发", "数据分析", "新功能"],
+      "estimatedPomodoros": 12,
+      "createdAt": "2024-03-16T09:00:00Z",
+      "updatedAt": "2024-03-16T09:00:00Z",
+      "priority": "high",
+      "dueDate": "2024-03-23T18:00:00Z",
+      "status": "pending"
+    },
+    {
+      "id": "c2",
+      "title": "每日代码审查",
+      "description": "审查团队成员的代码提交，确保代码质量和规范",
+      "tags": ["工作", "代码审查", "日常"],
+      "estimatedPomodoros": 2,
+      "createdAt": "2024-03-16T10:00:00Z",
+      "updatedAt": "2024-03-16T10:00:00Z",
+      "priority": "medium",
+      "recurring": "daily",
+      "status": "pending"
+    },
+    {
+      "id": "c3",
+      "title": "学习Rust并发编程",
+      "description": "学习Rust的并发编程模型，包括async/await、线程安全等概念",
+      "tags": ["学习", "Rust", "并发"],
+      "estimatedPomodoros": 8,
+      "createdAt": "2024-03-16T14:00:00Z",
+      "updatedAt": "2024-03-16T14:00:00Z",
+      "priority": "medium",
+      "dueDate": "2024-03-20T18:00:00Z",
+      "status": "pending"
+    },
+    {
+      "id": "c4",
+      "title": "健身计划：力量训练",
+      "description": "完成今日力量训练计划，包括深蹲、卧推等动作",
+      "tags": ["健身", "力量训练", "健康"],
+      "estimatedPomodoros": 4,
+      "createdAt": "2024-03-16T18:00:00Z",
+      "updatedAt": "2024-03-16T18:00:00Z",
+      "priority": "high",
+      "recurring": "weekly",
+      "status": "pending"
+    },
+    {
+      "id": "c5",
+      "title": "准备技术面试",
+      "description": "复习算法和系统设计，准备下周的技术面试",
+      "tags": ["面试", "准备", "学习"],
+      "estimatedPomodoros": 10,
+      "createdAt": "2024-03-16T20:00:00Z",
+      "updatedAt": "2024-03-16T20:00:00Z",
+      "priority": "high",
+      "dueDate": "2024-03-19T18:00:00Z",
+      "status": "pending"
+    }
+  ],
+  "createTemplates": [
+    {
+      "name": "开发任务模板",
+      "description": "标准开发任务模板",
+      "tags": ["开发", "工作"],
+      "estimatedPomodoros": 4,
+      "priority": "medium",
+      "status": "pending"
+    },
+    {
+      "name": "学习任务模板",
+      "description": "标准学习任务模板",
+      "tags": ["学习", "提升"],
+      "estimatedPomodoros": 6,
+      "priority": "medium",
+      "status": "pending"
+    },
+    {
+      "name": "健身任务模板",
+      "description": "标准健身任务模板",
+      "tags": ["健身", "健康"],
+      "estimatedPomodoros": 3,
+      "priority": "high",
+      "recurring": "daily",
+      "status": "pending"
+    },
+    {
+      "name": "会议任务模板",
+      "description": "标准会议任务模板",
+      "tags": ["会议", "工作"],
+      "estimatedPomodoros": 2,
+      "priority": "medium",
+      "status": "pending"
+    }
+  ],
+  "createValidation": {
+    "requiredFields": ["title", "estimatedPomodoros"],
+    "fieldRules": {
+      "title": {
+        "minLength": 2,
+        "maxLength": 100
+      },
+      "description": {
+        "maxLength": 500
+      },
+      "estimatedPomodoros": {
+        "min": 1,
+        "max": 20
+      },
+      "tags": {
+        "maxItems": 5
+      }
+    }
+  }
+} 

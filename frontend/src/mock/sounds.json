@@ -1,0 +1,62 @@
+{
+  "defaultSounds": [
+    {
+      "id": "bell",
+      "name": "铃铛",
+      "description": "经典的番茄钟提示音",
+      "url": "/sounds/bell.mp3",
+      "duration": 2.5
+    },
+    {
+      "id": "chime",
+      "name": "风铃",
+      "description": "清脆的风铃声",
+      "url": "/sounds/chime.mp3",
+      "duration": 3.0
+    },
+    {
+      "id": "digital",
+      "name": "数字音",
+      "description": "现代数字提示音",
+      "url": "/sounds/digital.mp3",
+      "duration": 1.5
+    },
+    {
+      "id": "gentle",
+      "name": "轻柔",
+      "description": "柔和的提示音",
+      "url": "/sounds/gentle.mp3",
+      "duration": 2.0
+    }
+  ],
+  "soundSettings": {
+    "taskStart": {
+      "soundId": "bell",
+      "enabled": true,
+      "volume": 0.8
+    },
+    "taskEnd": {
+      "soundId": "chime",
+      "enabled": true,
+      "volume": 0.8
+    }
+  },
+  "customSounds": [
+    {
+      "id": "custom1",
+      "name": "我的提示音1",
+      "description": "自定义上传的提示音",
+      "url": "/sounds/custom/custom1.mp3",
+      "duration": 2.0,
+      "uploadedAt": "2024-03-16T10:00:00Z",
+      "fileSize": 256000
+    }
+  ],
+  "soundRules": {
+    "maxCustomSounds": 10,
+    "maxFileSize": 1024000,
+    "allowedFormats": ["mp3", "wav", "ogg"],
+    "minDuration": 0.5,
+    "maxDuration": 10.0
+  }
+} 
