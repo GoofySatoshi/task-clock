@@ -83,7 +83,7 @@ frontend/
 │   └── main.js        # 入口文件
 ├── public/            # 公共资源
 ├── index.html         # HTML 模板
-├── vite.config.js     # Vite 配置
+├── vite.request.js     # Vite 配置
 └── package.json       # 项目配置
 ```
 
