@@ -41,10 +41,11 @@ public class Tag {
     private String color;
     
     /**
-     * iconId 标签图标Id 默认值为0
+     * icon 标签图标Value
+     * availableIcons
      */
-    @Column(name = "icon_id")
-    private Long iconId;
+    @Column(name = "icon_value")
+    private String iconValue;
     
     /**
      * 任务描述
