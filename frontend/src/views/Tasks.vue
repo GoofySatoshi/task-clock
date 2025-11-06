@@ -193,14 +193,13 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
-import { useTaskStore } from '../store/task'
 import { useRouter } from 'vue-router'
-import { taskApi } from '../api'
-import { ElMessage, ElMessageBox } from 'element-plus'
 import { Timer, Edit, Delete } from '@element-plus/icons-vue'
-
+import { taskApi } from '../api/task.js'
 const router = useRouter()
-const taskStore = useTaskStore()
+
+// 补充：修正 taskList 为响应式变量
+const taskList = ref([])
 const searchQuery = ref('')
 const selectedTags = ref([])
 const showModal = ref(false)
@@ -208,225 +207,199 @@ const taskFormRef = ref(null)
 const loading = ref(false)
 const error = ref(null)
 
-// 标签颜色映射
-const tagColors = {
-  '工作': '#4CAF50',
-  '文档': '#2196F3',
-  '重要': '#F44336',
-  '学习': '#FF9800',
-  'Vue': '#42B983',
-  '前端': '#1E88E5',
-  '阅读': '#795548',
-  '计算机': '#607D8B',
-  '开发': '#9C27B0',
-  '优化': '#FF5722',
-  'DevOps': '#00BCD4',
-  '修复': '#E91E63'
-}
+// 补充：编辑任务对象（初始化默认值）
+const editingTask = ref({
+  id: '', // 编辑时赋值，新增时为空
+  title: '',
+  estimatedPomodoros: 1, // 默认1个番茄钟
+  completedPomodoros: 0, // 初始完成0个
+  tags: [],
+  dueDate: '',
+  completed: false // 初始未完成
+})
 
-// 获取标签颜色
-const getTagColor = (tag) => {
-  return tagColors[tag] || '#909399'
-}
+// 补充：可用标签列表（可根据实际需求扩展）
+const availableTags = ref([
+  '学习', '工作', '生活', '紧急', '重要', '长期', '短期'
+])
 
-// 获取所有任务
-const fetchTasks = async () => {
+// 初始化任务列表
+async function init() {
+  loading.value = true
   try {
-    loading.value = true
-    error.value = null
-    await taskStore.fetchTasks()
+    const response = await taskApi.getAllTasks().then( response => response.data)
+    taskList.value = Array.isArray(response.data) ? response.data : []
   } catch (err) {
-    error.value = err.message || '获取任务列表失败'
-    ElMessage.error(error.value)
+    console.error('获取任务列表失败:', err)
+    error.value = '获取任务失败，请稍后重试'
+    taskList.value = [] // 确保始终是数组
   } finally {
     loading.value = false
   }
 }
 
-// 初始化编辑任务表单
-const initTaskForm = () => ({
-  title: '',
-  estimatedPomodoros: 1,
-  dueDate: '',
-  tags: [],
-  completed: false,
-  completedPomodoros: 0
+const filteredTasks = computed(() => {
+  // 如果两个筛选条件都为空，直接返回所有任务
+  if (!searchQuery.value && selectedTags.value.length === 0) {
+    return taskList.value
+  }
+
+  return taskList.value.filter(task => {
+    // 处理标题匹配 - 如果搜索关键词为空，则认为匹配
+    const titleMatch = !searchQuery.value ||
+        task.title?.toLowerCase().includes(searchQuery.value.toLowerCase())
+
+    // 处理标签匹配 - 如果未选择标签，则认为匹配
+    const tagMatch = selectedTags.value.length === 0 ||
+        selectedTags.value.every(tag => task.tags?.includes(tag))
+
+    return titleMatch && tagMatch
+  })
 })
 
-// 使用 ref 来管理编辑任务状态
-const editingTask = ref(initTaskForm())
-
-// 禁用过去的日期
-const disablePastDates = (time) => {
-  return time.getTime() < Date.now() - 8.64e7 // 禁用今天之前的日期
-}
-
-// 打开添加任务对话框
-const openAddTaskDialog = () => {
-  editingTask.value = initTaskForm()
+// 补充：打开添加任务弹窗
+function openAddTaskDialog() {
+  // 重置编辑任务对象
+  editingTask.value = {
+    id: '',
+    title: '',
+    estimatedPomodoros: 1,
+    completedPomodoros: 0,
+    tags: [],
+    dueDate: '',
+    completed: false
+  }
   showModal.value = true
 }
 
-// 处理对话框关闭
-const handleDialogClose = () => {
+// 补充：处理任务完成状态切换
+async function handleToggleTask(task) {
+  loading.value = true
+  try {
+    await taskApi.updateTask({ ...task, completed: task.completed })
+    console.log('任务状态更新成功')
+  } catch (err) {
+    console.error('更新任务状态失败:', err)
+    error.value = '更新任务状态失败，请稍后重试'
+    // 失败时回滚状态
+    task.completed = !task.completed
+  } finally {
+    loading.value = false
+  }
+}
+
+// 补充：开始学习（跳转至番茄钟页面，可根据路由配置调整）
+function handleStartLearning(task) {
+  // 假设路由为 /pomodoro，携带任务ID参数
+  router.push({ path: '/pomodoro', query: { taskId: task.id } })
+}
+
+// 补充：打开编辑任务弹窗
+function handleEditTask(task) {
+  // 深拷贝任务对象，避免直接修改原数据
+  editingTask.value = JSON.parse(JSON.stringify(task))
+  showModal.value = true
+}
+
+// 补充：删除任务
+async function handleDeleteTask(taskId) {
+  loading.value = true
+  try {
+    await taskApi.deleteTask(taskId)
+    // 从列表中移除删除的任务
+    taskList.value = taskList.value.filter(task => task.id !== taskId)
+    console.log('任务删除成功')
+  } catch (err) {
+    console.error('删除任务失败:', err)
+    error.value = '删除任务失败，请稍后重试'
+  } finally {
+    loading.value = false
+  }
+}
+
+// 补充：关闭弹窗
+function handleDialogClose() {
   showModal.value = false
-  editingTask.value = initTaskForm()
+  // 重置表单校验
   if (taskFormRef.value) {
     taskFormRef.value.resetFields()
   }
 }
 
-// 编辑任务
-const handleEditTask = (task) => {
-  editingTask.value = {
-    ...task,
-    dueDate: task.dueDate || '',
-    tags: task.tags || []
-  }
-  showModal.value = true
-}
-
-// 添加任务
-const handleAddTask = async () => {
-  if (!editingTask.value.title || !editingTask.value.estimatedPomodoros) {
-    ElMessage.warning('请填写必填项')
-    return
-  }
-
+// 补充：添加任务
+async function handleAddTask() {
+  // 表单校验
+  if (!taskFormRef.value) return
   try {
+    await taskFormRef.value.validate()
     loading.value = true
-    const newTask = {
-      ...editingTask.value,
-      completed: false,
-      completedPomodoros: 0,
-      dueDate: editingTask.value.dueDate || null,
-      tags: editingTask.value.tags || []
-    }
-    await taskStore.addTask(newTask)
-    handleDialogClose()
-    ElMessage.success('任务添加成功')
-    await fetchTasks() // 重新获取任务列表
-  } catch (error) {
-    ElMessage.error('添加任务失败：' + error.message)
-  } finally {
-    loading.value = false
-  }
-}
-
-// 更新任务
-const handleUpdateTask = async () => {
-  if (!editingTask.value.title || !editingTask.value.estimatedPomodoros) {
-    ElMessage.warning('请填写必填项')
-    return
-  }
-
-  try {
-    loading.value = true
-    const { id, ...updates } = editingTask.value
-    await taskStore.updateTask(id, {
-      ...updates,
-      dueDate: editingTask.value.dueDate || null,
-      tags: editingTask.value.tags || []
+    // 调用API创建任务
+    const response = await taskApi.createTask(editingTask.value)
+    // 新增任务添加到列表
+    taskList.value.push({
+      id: response.data.id || Date.now(), // 用时间戳临时生成ID（实际以接口返回为准）
+      ...editingTask.value
     })
-    handleDialogClose()
-    ElMessage.success('任务更新成功')
-    await fetchTasks() // 重新获取任务列表
-  } catch (error) {
-    ElMessage.error('更新任务失败：' + error.message)
+    console.log('任务添加成功')
+    showModal.value = false
+  } catch (err) {
+    console.error('添加任务失败:', err)
+    error.value = '添加任务失败，请稍后重试'
   } finally {
     loading.value = false
   }
 }
 
-// 删除任务
-const handleDeleteTask = async (id) => {
+// 补充：更新任务
+async function handleUpdateTask() {
+  // 表单校验
+  if (!taskFormRef.value) return
   try {
-    await ElMessageBox.confirm('确定要删除这个任务吗？', '提示', {
-      type: 'warning'
-    })
+    await taskFormRef.value.validate()
     loading.value = true
-    await taskStore.deleteTask(id)
-    ElMessage.success('任务删除成功')
-    await fetchTasks() // 重新获取任务列表
-  } catch (error) {
-    if (error !== 'cancel') {
-      ElMessage.error('删除任务失败：' + error.message)
+    // 调用API更新任务
+    await taskApi.updateTask(editingTask.value)
+    // 更新列表中的任务数据
+    const index = taskList.value.findIndex(task => task.id === editingTask.value.id)
+    if (index !== -1) {
+      taskList.value[index] = { ...editingTask.value }
     }
+    console.log('任务更新成功')
+    showModal.value = false
+  } catch (err) {
+    console.error('更新任务失败:', err)
+    error.value = '更新任务失败，请稍后重试'
   } finally {
     loading.value = false
   }
 }
 
-// 切换任务完成状态
-const handleToggleTask = async (task) => {
-  try {
-    loading.value = true
-    await taskStore.updateTask(task.id, {
-      completed: !task.completed
-    })
-    ElMessage.success(task.completed ? '任务已标记为未完成' : '任务已完成')
-    await fetchTasks() // 重新获取任务列表
-  } catch (error) {
-    ElMessage.error('更新任务状态失败：' + error.message)
-  } finally {
-    loading.value = false
+// 补充：标签颜色映射（随机生成或固定映射）
+function getTagColor(tag) {
+  // 为不同标签分配固定颜色（可扩展）
+  const colorMap = {
+    学习: 'blue',
+    工作: 'green',
+    生活: 'orange',
+    紧急: 'red',
+    重要: 'purple',
+    长期: 'cyan',
+    短期: 'pink'
   }
+  // 未定义的标签使用随机颜色
+  return colorMap[tag] || ['success', 'info', 'warning', 'primary'][Math.floor(Math.random() * 4)]
 }
 
-// 开始学习（启动番茄钟）
-const handleStartLearning = (task) => {
-  if (task.completed) {
-    ElMessage.warning('任务已完成，无法开始学习')
-    return
-  }
-  
-  // 将当前任务设置为活动任务
-  taskStore.setCurrentTask(task)
-  
-  // 跳转到番茄钟页面
-  router.push('/timer')
+// 补充：禁止选择过去的日期
+function disablePastDates(time) {
+  // 返回 true 表示禁用该日期
+  return time.getTime() < Date.now() - 8.64e7 // 8.64e7 = 24*60*60*1000，禁用今天之前的日期
 }
-
-// 计算属性：过滤后的任务列表
-const filteredTasks = computed(() => {
-  if (!taskStore.tasks) return []
-  
-  let tasks = taskStore.tasks
-
-  // 搜索过滤
-  if (searchQuery.value) {
-    const query = searchQuery.value.toLowerCase()
-    tasks = tasks.filter(task => 
-      task.title.toLowerCase().includes(query) ||
-      (task.tags && task.tags.some(tag => tag.toLowerCase().includes(query)))
-    )
-  }
-
-  // 标签过滤
-  if (selectedTags.value.length > 0) {
-    tasks = tasks.filter(task =>
-      task.tags && selectedTags.value.every(tag => task.tags.includes(tag))
-    )
-  }
-
-  return tasks
-})
-
-// 计算属性：所有可用标签
-const availableTags = computed(() => {
-  if (!taskStore.tasks) return []
-  
-  const tags = new Set()
-  taskStore.tasks.forEach(task => {
-    if (task.tags) {
-      task.tags.forEach(tag => tags.add(tag))
-    }
-  })
-  return Array.from(tags)
-})
 
 // 组件挂载时获取任务列表
-onMounted(fetchTasks)
+onMounted(() => {
+  init()
+})
 </script>
 
 <style scoped>

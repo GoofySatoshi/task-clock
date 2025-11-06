@@ -31,7 +31,7 @@
         </div>
         <div class="stat-card">
           <div class="stat-icon">
-            <el-icon><CheckCircle /></el-icon>
+            <el-icon><CircleCheck /></el-icon>
           </div>
           <div class="stat-info">
             <div class="stat-value">{{ completedTasksCount }}</div>
@@ -71,7 +71,7 @@
 <script setup>
 import { computed, onMounted } from 'vue'
 import { useTaskStore } from '../store/task'
-import { List, Timer, CheckCircle } from '@element-plus/icons-vue'
+import { List, Timer, CircleCheck } from '@element-plus/icons-vue'
 
 const taskStore = useTaskStore()
 

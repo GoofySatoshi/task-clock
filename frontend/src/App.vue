@@ -1,7 +1,6 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { useTaskStore } from './store/task'
 import { useSettingsStore } from './store/settings'
 import {
   Timer,
@@ -18,7 +17,6 @@ import {
 
 const route = useRoute()
 const router = useRouter()
-const taskStore = useTaskStore()
 const settingsStore = useSettingsStore()
 const isMobile = ref(window.innerWidth <= 768)
 const isCollapsed = ref(false)
@@ -50,15 +48,11 @@ const handleMenuSelect = (index) => {
 
 // 计算属性：未完成任务数量
 const incompleteTasksCount = computed(() => {
-  return taskStore.tasks.filter(task => !task.completed).length
 })
 
 // 计算属性：今日完成的番茄钟数量
 const todayPomodorosCount = computed(() => {
-  const today = new Date().toISOString().split('T')[0]
-  return taskStore.tasks.reduce((count, task) => {
-    return count + (task.completedPomodoros || 0)
-  }, 0)
+
 })
 
 const handleResize = () => {
